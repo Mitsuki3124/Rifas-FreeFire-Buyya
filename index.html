@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorteo Pase Buyya - Free Fire (Irías)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #e0e0ff;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 25px 0;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #ff3366;
+      text-shadow: 0 0 15px #ff3366;
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .subtitle {
+      color: #00ffcc;
+      font-size: 1.4rem;
+      margin: 10px 0;
+    }
+    .section {
+      background: rgba(20, 20, 50, 0.8);
+      border: 1px solid #ff3366;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(255,51,102,0.3);
+    }
+    .section h2 {
+      color: #ffcc00;
+      margin-top: 0;
+      border-bottom: 2px solid #ff3366;
+      padding-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
+      line-height: 1.7;
+    }
+    .buy-section {
+      text-align: center;
+      margin: 40px 0;
+      padding: 30px;
+      background: rgba(0, 255, 204, 0.15);
+      border: 2px dashed #00ffcc;
+      border-radius: 16px;
+    }
+    .buy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #25D366;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: bold;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      transition: all 0.3s;
+    }
+    .buy-btn:hover {
+      background: #20b058;
+      transform: scale(1.05);
+    }
+    .buy-btn img {
+      width: 36px;
+      height: 36px;
+      margin-right: 14px;
+    }
+    .info-text {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #ffcc00;
+    }
+    .progress-section {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .progress-bar {
+      background: #1a0033;
+      border: 2px solid #ff3366;
+      border-radius: 20px;
+      height: 30px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .progress-fill {
+      background: linear-gradient(90deg, #ff3366, #ffcc00);
+      height: 100%;
+      transition: width 0.5s ease-in-out;
+    }
+    .progress-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+    }
+    .progress-info {
+      font-size: 1.2rem;
+      color: #00ffcc;
+      margin-top: 15px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #888;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎮 SORTEO PASE BUYYA FREE FIRE 🎮</h1>
+    <div class="subtitle">¡El sorteo se hace al 100% de boletos vendidos! Organizado por Irías</div>
+  </header>
+
+  <div class="section">
+    <h2>Información de la Rifa</h2>
+    <ul>
+      <li>Premio: Pase Buyya.</li>
+      <li>Costo por boleto: <strong>$0.50 MXN</strong> (cincuenta centavos).</li>
+      <li>Total de boletos: <strong>200</strong>.</li>
+      <li>Entre más boletos compres, ¡más posibilidades de ganar!</li>
+      <li>El sorteo se hará cuando se vendan todos los boletos (100%).</li>
+      <li>Se usará Facebook o un canal de WhatsApp para subir las capturas de pantalla donde damos el pase.</li>
+      <li>El ganador será contactado inmediatamente por WhatsApp/Instagram/Facebook.</li>
+      <li>Actualizaciones: La página se refresca cuando hay ventas nuevas.</li>
+    </ul>
+  </div>
+
+  <div class="buy-section">
+    <h2>¡Participa ahora!</h2>
+    <p style="font-size:1.1rem; margin-bottom:20px;">Solo $0.50 MXN por boleto</p>
+    
+    <a 
+      href="https://wa.me/522331192103?text=¡Quiero%20comprar%20un%20boleto!" 
+      class="buy-btn" 
+      target="_blank"
+    >
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      ¡Quiero comprar un boleto!
+    </a>
+    
+    <div class="info-text">
+      Presiona el botón y escribe tu nombre o apodo. ¡Te respondo rápido! 🔥
+    </div>
+  </div>
+
+  <div class="progress-section">
+    <h2>Progreso de Ventas</h2>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+      <div class="progress-text" id="progress-text">0%</div>
+    </div>
+    <div class="progress-info">
+      Boletos vendidos: <span id="vendidos-count">0</span> de 200<br>
+      ¡Cuando llegue al 100%, rifamos el Pase Buyya! 🔥
+    </div>
+  </div>
+
+  <footer>
+    © Organizado por Rifa • México • 2026 • Contacto: WhatsApp
+  </footer>
+
+  <script>
+    // =============================================
+    // ¡ACTUALIZA ESTE NÚMERO CADA VEZ QUE VENDAS BOLETOS!
+    // =============================================
+    const TOTAL_BOLETOS = 200;
+    let boletosVendidos = 0;  // ← CAMBIA ESTE VALOR (ejemplo: 45 si has vendido 45 boletos)
+
+    // Calcula y actualiza la barra
+    const porcentaje = (boletosVendidos / TOTAL_BOLETOS) * 100;
+    document.getElementById('progress-fill').style.width = `${porcentaje}%`;
+    document.getElementById('progress-text').textContent = `${Math.round(porcentaje)}%`;
+    document.getElementById('vendidos-count').textContent = boletosVendidos;
+
+    // Mensaje especial al 100%
+    if (porcentaje >= 100) {
+      document.querySelector('.progress-info').innerHTML += '<br><strong>¡100% completado! Sorteo próximamente en vivo.</strong>';
+    }
+  </script>
+
+</body>
+</html>
